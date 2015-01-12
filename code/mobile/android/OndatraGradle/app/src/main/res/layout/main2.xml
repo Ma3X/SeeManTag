@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#333"
+    >
+
+  <Button android:text="sayHello" 
+          android:layout_height="wrap_content" 
+          android:id="@+id/button1" 
+          android:layout_width="117dp"></Button>
+
+  <TextView android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:text="@string/hello" 
+            android:id="@+id/tekstik"></TextView>
+
+  <Button android:text="Play" 
+          android:layout_height="wrap_content" 
+          android:id="@+id/btnPlay" 
+          android:layout_width="117dp"></Button>
+
+  <Button android:text="Stop" 
+          android:id="@+id/btnStop" 
+          android:layout_height="wrap_content" 
+          android:layout_width="117dp"></Button>
+
+  <Button android:text="Prev" 
+          android:layout_height="wrap_content" 
+          android:id="@+id/btnPrev" 
+          android:layout_width="117dp"></Button>
+
+  <Button android:text="Next" 
+          android:layout_height="wrap_content" 
+          android:id="@+id/btnNext" 
+          android:layout_width="117dp"></Button>
+
+  <Button android:text="Exit" 
+          android:layout_height="wrap_content" 
+          android:id="@+id/btnExit" 
+          android:layout_width="117dp"></Button>
+
+</LinearLayout>

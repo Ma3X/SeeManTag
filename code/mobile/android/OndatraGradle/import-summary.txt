@@ -1,0 +1,194 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .gitignore
+* .idea/
+* .idea/.name
+* .idea/compiler.xml
+* .idea/copyright/
+* .idea/copyright/profiles_settings.xml
+* .idea/dictionaries/
+* .idea/dictionaries/iveo.xml
+* .idea/encodings.xml
+* .idea/libraries/
+* .idea/libraries/ksoap2_android_assembly_2_5_8_jar_with_dependencies.xml
+* .idea/misc.xml
+* .idea/modules.xml
+* .idea/scopes/
+* .idea/scopes/scope_settings.xml
+* .idea/uiDesigner.xml
+* .idea/vcs.xml
+* .idea/workspace.xml
+* Ondatra.iml
+* README.md
+* classes/
+* classes/production/
+* classes/production/jeromq/
+* classes/production/jeromq/org/
+* classes/production/jeromq/org/zeromq/
+* classes/production/jeromq/org/zeromq/ZContext.class
+* classes/production/jeromq/org/zeromq/ZFrame.class
+* classes/production/jeromq/org/zeromq/ZLoop$IZLoopHandler.class
+* classes/production/jeromq/org/zeromq/ZLoop$SPoller.class
+* classes/production/jeromq/org/zeromq/ZLoop$STimer.class
+* classes/production/jeromq/org/zeromq/ZLoop.class
+* classes/production/jeromq/org/zeromq/ZMQ$Context.class
+* classes/production/jeromq/org/zeromq/ZMQ$Error.class
+* classes/production/jeromq/org/zeromq/ZMQ$Event.class
+* classes/production/jeromq/org/zeromq/ZMQ$PollItem.class
+* classes/production/jeromq/org/zeromq/ZMQ$Poller.class
+* classes/production/jeromq/org/zeromq/ZMQ$Socket.class
+* classes/production/jeromq/org/zeromq/ZMQ.class
+* classes/production/jeromq/org/zeromq/ZMQException$IOException.class
+* classes/production/jeromq/org/zeromq/ZMQException.class
+* classes/production/jeromq/org/zeromq/ZMQQueue.class
+* classes/production/jeromq/org/zeromq/ZMsg.class
+* classes/production/jeromq/org/zeromq/ZThread$IAttachedRunnable.class
+* classes/production/jeromq/org/zeromq/ZThread$IDetachedRunnable.class
+* classes/production/jeromq/org/zeromq/ZThread$ShimThread.class
+* classes/production/jeromq/org/zeromq/ZThread.class
+* classes/production/jeromq/zmq/
+* classes/production/jeromq/zmq/Address$IZAddress.class
+* classes/production/jeromq/zmq/Address.class
+* classes/production/jeromq/zmq/Blob.class
+* classes/production/jeromq/zmq/Clock.class
+* classes/production/jeromq/zmq/Command$Type.class
+* classes/production/jeromq/zmq/Command.class
+* classes/production/jeromq/zmq/Config.class
+* classes/production/jeromq/zmq/Ctx$Endpoint.class
+* classes/production/jeromq/zmq/Ctx.class
+* classes/production/jeromq/zmq/Dealer$DealerSession.class
+* classes/production/jeromq/zmq/Dealer.class
+* classes/production/jeromq/zmq/Decoder.class
+* classes/production/jeromq/zmq/DecoderBase.class
+* classes/production/jeromq/zmq/Dist.class
+* classes/production/jeromq/zmq/Encoder.class
+* classes/production/jeromq/zmq/EncoderBase.class
+* classes/production/jeromq/zmq/FQ.class
+* classes/production/jeromq/zmq/IDecoder.class
+* classes/production/jeromq/zmq/IEncoder.class
+* classes/production/jeromq/zmq/IEngine.class
+* classes/production/jeromq/zmq/IMsgSink.class
+* classes/production/jeromq/zmq/IMsgSource.class
+* classes/production/jeromq/zmq/IOObject.class
+* classes/production/jeromq/zmq/IOThread.class
+* classes/production/jeromq/zmq/IPollEvents.class
+* classes/production/jeromq/zmq/IpcAddress.class
+* classes/production/jeromq/zmq/IpcConnecter.class
+* classes/production/jeromq/zmq/IpcListener.class
+* classes/production/jeromq/zmq/LB.class
+* classes/production/jeromq/zmq/Mailbox.class
+* classes/production/jeromq/zmq/Msg.class
+* classes/production/jeromq/zmq/Mtrie$IMtrieHandler.class
+* classes/production/jeromq/zmq/Mtrie.class
+* classes/production/jeromq/zmq/MultiMap$MultiMapEntry.class
+* classes/production/jeromq/zmq/MultiMap$MultiMapEntrySet.class
+* classes/production/jeromq/zmq/MultiMap.class
+* classes/production/jeromq/zmq/Options.class
+* classes/production/jeromq/zmq/Own.class
+* classes/production/jeromq/zmq/Pair$PairSession.class
+* classes/production/jeromq/zmq/Pair.class
+* classes/production/jeromq/zmq/Pipe$IPipeEvents.class
+* classes/production/jeromq/zmq/Pipe$State.class
+* classes/production/jeromq/zmq/Pipe.class
+* classes/production/jeromq/zmq/PollItem.class
+* classes/production/jeromq/zmq/Poller$PollSet.class
+* classes/production/jeromq/zmq/Poller.class
+* classes/production/jeromq/zmq/PollerBase$TimerInfo.class
+* classes/production/jeromq/zmq/PollerBase.class
+* classes/production/jeromq/zmq/Proxy.class
+* classes/production/jeromq/zmq/Pub$PubSession.class
+* classes/production/jeromq/zmq/Pub.class
+* classes/production/jeromq/zmq/Pull$PullSession.class
+* classes/production/jeromq/zmq/Pull.class
+* classes/production/jeromq/zmq/Push$PushSession.class
+* classes/production/jeromq/zmq/Push.class
+* classes/production/jeromq/zmq/Reaper.class
+* classes/production/jeromq/zmq/Rep$RepSession.class
+* classes/production/jeromq/zmq/Rep.class
+* classes/production/jeromq/zmq/Req$1.class
+* classes/production/jeromq/zmq/Req$ReqSession$State.class
+* classes/production/jeromq/zmq/Req$ReqSession.class
+* classes/production/jeromq/zmq/Req.class
+* classes/production/jeromq/zmq/Router$Outpipe.class
+* classes/production/jeromq/zmq/Router$RouterSession.class
+* classes/production/jeromq/zmq/Router.class
+* classes/production/jeromq/zmq/SessionBase.class
+* classes/production/jeromq/zmq/Signaler.class
+* classes/production/jeromq/zmq/SocketBase.class
+* classes/production/jeromq/zmq/StreamEngine.class
+* classes/production/jeromq/zmq/Sub$SubSession.class
+* classes/production/jeromq/zmq/Sub.class
+* classes/production/jeromq/zmq/TcpAddress$TcpAddressMask.class
+* classes/production/jeromq/zmq/TcpAddress.class
+* classes/production/jeromq/zmq/TcpConnecter.class
+* classes/production/jeromq/zmq/TcpListener.class
+* classes/production/jeromq/zmq/Transfer$ByteBufferTransfer.class
+* classes/production/jeromq/zmq/Transfer$FileChannelTransfer.class
+* classes/production/jeromq/zmq/Transfer.class
+* classes/production/jeromq/zmq/Trie$ITrieHandler.class
+* classes/production/jeromq/zmq/Trie.class
+* classes/production/jeromq/zmq/Utils.class
+* classes/production/jeromq/zmq/V1Decoder.class
+* classes/production/jeromq/zmq/V1Encoder.class
+* classes/production/jeromq/zmq/V1Protocol.class
+* classes/production/jeromq/zmq/ValueReference.class
+* classes/production/jeromq/zmq/XPub$1.class
+* classes/production/jeromq/zmq/XPub$2.class
+* classes/production/jeromq/zmq/XPub$XPubSession.class
+* classes/production/jeromq/zmq/XPub.class
+* classes/production/jeromq/zmq/XSub$1.class
+* classes/production/jeromq/zmq/XSub$XSubSession.class
+* classes/production/jeromq/zmq/XSub.class
+* classes/production/jeromq/zmq/YPipe.class
+* classes/production/jeromq/zmq/YQueue$Chunk.class
+* classes/production/jeromq/zmq/YQueue.class
+* classes/production/jeromq/zmq/ZError$CtxTerminatedException.class
+* classes/production/jeromq/zmq/ZError$IOException.class
+* classes/production/jeromq/zmq/ZError$InstantiationException.class
+* classes/production/jeromq/zmq/ZError.class
+* classes/production/jeromq/zmq/ZMQ$Event.class
+* classes/production/jeromq/zmq/ZMQ$PollSelector.class
+* classes/production/jeromq/zmq/ZMQ.class
+* classes/production/jeromq/zmq/ZObject$1.class
+* classes/production/jeromq/zmq/ZObject.class
+* default.properties
+* jni/
+* jni/stub.cpp
+* jni/test.cpp
+* jni/test.h
+* lib/
+* lib/htmlcleaner-2.2.jar
+* lib/ksoap2-android-assembly-2.5.8-jar-with-dependencies.jar
+* proguard.cfg
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app/src/main/AndroidManifest.xml
+* res/ => app/src/main/res/
+* src/ => app/src/main/java/
+* src/com/xpyct/ondatra/IGoodnightService.aidl => app/src/main/aidl/com/xpyct/ondatra/IGoodnightService.aidl
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

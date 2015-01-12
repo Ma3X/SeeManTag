@@ -1,0 +1,97 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'android'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion '21.1.2'
+
+    defaultConfig {
+        applicationId "com.xpyct.ondatra"
+        minSdkVersion 10
+        targetSdkVersion 10
+        //targetSdkVersion 21
+
+        ndk {
+            moduleName "test"
+            cFlags "-DANDROID_NDK"
+            ldLibs "log"
+            stl "stlport_static"
+        }
+    }
+
+    buildTypes {
+        release {
+            //runProguard false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+
+        //debug.jniDebugBuild true
+    }
+
+    productFlavors {
+        x86 {
+            ndk {
+                abiFilter "x86"
+            }
+
+            // this is the flavor part of the version code.
+            // It must be higher than the arm one for devices supporting
+            // both, as x86 is preferred.
+            //versionCode = 3
+            versionCode = 0
+        }
+        armv7 {
+            ndk {
+                abiFilter "armeabi-v7a"
+            }
+            versionCode = 1
+        }
+        arm {
+            ndk {
+                abiFilter "armeabi"
+            }
+            versionCode = 2
+        }
+        mips {
+            ndk {
+                abiFilter "mips"
+            }
+            versionCode = 3
+        }
+        fat {
+            // fat binary, lowest version code to be
+            // the last option
+            //versionCode = 0
+            versionCode = 4
+        }
+    }
+
+    // make per-variant version code
+    //applicationVariants.all { variant ->
+    //    // get the single flavor
+    //    def flavorVersion = variant.productFlavors.get(0).versionCode
+    //
+    //    // set the composite code
+    //    variant.mergedFlavor.versionCode = flavorVersion * 1000000 + defaultConfig.versionCode
+    //}
+
+    sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jni/'] } }
+}
+
+dependencies {
+    compile files('libs/htmlcleaner-2.2.jar')
+    compile files('libs/ksoap2-android-assembly-2.5.8-jar-with-dependencies.jar')
+    compile project(':jeromq')
+    //compile fileTree(dir: 'libs', include: ['*.jar'])
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    //compile 'com.android.support:support-v4:19.+'
+    //compile 'com.android.support:support-v4:20.+'
+
+    // Adding libraries without resources
+    //compile 'com.android.support:support-v4:21.+'
+    // Adding libraries with resources
+    //compile "com.android.support:appcompat-v7:18.0.+"
+    //compile 'com.android.support:appcompat-v7:21.+'
+    //compile 'com.android.support:appcompat-v7:19.0.0'
+}

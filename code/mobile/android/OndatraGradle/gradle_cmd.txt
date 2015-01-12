@@ -1,0 +1,41 @@
+./gradlew clean
+./gradlew packageFatDebug
+./gradlew zipalignFatDebug
+
+./gradlew jeromq:clean
+./gradlew :jeromq:clean
+
+./gradlew tasks
+./gradlew tasks --all
+./gradlew app:tasks - Displays the tasks runnable from project ':app'.
+./gradlew jeromq:tasks - Displays the tasks runnable from project ':jeromq'.
+
+./gradlew -q properties
+./gradlew properties
+
+./gradlew installFatDebug
+
+Help tasks
+----------
+components - Displays the components produced by root project 'OndatraGradle'. [incubating]
+app:components - Displays the components produced by project ':app'. [incubating]
+jeromq:components - Displays the components produced by project ':jeromq'. [incubating]
+dependencies - Displays all dependencies declared in root project 'OndatraGradle'.
+app:dependencies - Displays all dependencies declared in project ':app'.
+jeromq:dependencies - Displays all dependencies declared in project ':jeromq'.
+dependencyInsight - Displays the insight into a specific dependency in root project 'OndatraGradle'.
+app:dependencyInsight - Displays the insight into a specific dependency in project ':app'.
+jeromq:dependencyInsight - Displays the insight into a specific dependency in project ':jeromq'.
+help - Displays a help message.
+app:help - Displays a help message.
+jeromq:help - Displays a help message.
+projects - Displays the sub-projects of root project 'OndatraGradle'.
+app:projects - Displays the sub-projects of project ':app'.
+jeromq:projects - Displays the sub-projects of project ':jeromq'.
+properties - Displays the properties of root project 'OndatraGradle'.
+app:properties - Displays the properties of project ':app'.
+jeromq:properties - Displays the properties of project ':jeromq'.
+tasks - Displays the tasks runnable from root project 'OndatraGradle' (some of the displayed tasks may belong to subprojects).
+app:tasks - Displays the tasks runnable from project ':app'.
+jeromq:tasks - Displays the tasks runnable from project ':jeromq'.
+

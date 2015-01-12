@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+  
+  <EditText android:layout_height="wrap_content" 
+            android:id="@+id/editText1" 
+            android:layout_width="match_parent">
+    <requestFocus></requestFocus></EditText>
+  
+  <EditText android:id="@+id/editText2" 
+            android:layout_height="wrap_content" 
+            android:layout_width="150dip"></EditText>
+  
+  <Button android:layout_width="wrap_content" 
+          android:layout_height="wrap_content" 
+          android:text="@string/btnConnect" 
+          android:id="@+id/bConnect" android:layout_gravity="center_horizontal"></Button>
+  
+  <Spinner android:layout_width="match_parent" 
+           android:id="@+id/spinner1" 
+           android:layout_height="wrap_content"></Spinner>
+  
+  <CheckBox android:layout_width="wrap_content" android:id="@+id/cbIsButton" android:layout_height="wrap_content" android:text="@string/cbxIsButton"></CheckBox>
+  
+  <TextView android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:layout_width="wrap_content" 
+            android:id="@+id/textView1" 
+            android:text="DPI:" 
+            android:layout_height="wrap_content"></TextView>
+  
+  <Spinner android:id="@+id/spinner2" 
+           android:layout_height="wrap_content" 
+           android:layout_width="150dip"></Spinner>
+  
+  <TextView android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:layout_width="wrap_content" 
+            android:id="@+id/textView2" 
+            android:text="Color:" 
+            android:layout_height="wrap_content"></TextView>
+  
+  <Spinner android:id="@+id/spinner3" 
+           android:layout_height="wrap_content" 
+           android:layout_width="150dip"></Spinner>
+  
+  <Button android:layout_height="wrap_content" 
+          android:layout_width="wrap_content" 
+          android:id="@+id/bScan" 
+          android:text="@string/btnScan" android:layout_gravity="center_horizontal">
+  </Button>
+
+</LinearLayout>

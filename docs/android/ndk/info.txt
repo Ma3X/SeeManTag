@@ -1,0 +1,14 @@
+Android Studio для NDK под Windows
+http://habrahabr.ru/post/228365/
+
+wheezy installing glibc >= 2.14
+http://forums.debian.net/viewtopic.php?f=17&t=118262
+
+Need to install glibc >= 2.14 on Wheezy
+http://unix.stackexchange.com/questions/85505/need-to-install-glibc-2-14-on-wheezy
+
+How to create an environment for libraries and binaries?
+http://unix.stackexchange.com/questions/137560/how-to-create-an-environment-for-libraries-and-binaries
+
+
+LD_LIBRARY_PATH=/home/zeus/lxc/vrt-env/debian/rootfs/lib/x86_64-linux-gnu /home/zeus/lxc/vrt-env/debian/rootfs/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2 ./android-ndk-r10d-linux-x86_64.bin

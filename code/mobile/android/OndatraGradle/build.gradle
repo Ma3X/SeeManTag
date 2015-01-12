@@ -1,0 +1,85 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+task updprop << {
+    // in windows: %username%
+    def hostname = InetAddress.getLocalHost().getHostName()
+    def username = "unknoun"
+    def ostype   = "unknoun"  //System.properties['os.name'].toLowerCase()
+    //println username
+    //println hostname
+
+    if (System.properties['os.name'].toLowerCase().contains('windows')) {
+        println "it's Windows"            // run command in console: set
+        ostype   = "windows"
+        username = System.getenv('USERNAME')
+    } else if (System.properties['os.name'].toLowerCase().contains('linux')) {
+        println "it's Linux"              // run command in console: env
+        ostype   = "linux"
+        username = System.getenv('USER')
+    } else {
+        println "it's unknown OS"
+    }
+    //println System.getProperty('os.name')
+    //println System.getProperty('os.arch')
+    //checkWin
+    //typeos
+
+    //loadProperties '${project.rootDir}/dev.properties'
+    def config = new Properties()
+    def propFile = new File("${project.rootDir}/dev.properties")
+    if (propFile.canRead()) {
+        config.load(new FileInputStream(propFile))
+        //for (Map.Entry property in config) {
+        //    ext[property.key] = property.value;
+        //}
+
+        def valname = ostype + '.' + hostname.toLowerCase() + '.' + username.toLowerCase()
+        println 'set environment variables for: ' + valname
+        //def valname2 = valname + '.test2'
+        //println valname2 + ': ' + config[valname2]
+        //valname2 = valname + '.org.gradle.java.home'
+        //println valname2 + ': ' + config[valname2]
+
+        //Properties props = System.getProperties();
+        //Enumeration e = props.propertyNames();
+        //Enumeration<?> enumeration = prop.propertyNames();
+        //def e = System.getProperties();
+        //while (e.hasMoreElements()) {
+        //    String key = (String) e.nextElement();
+        //    System.out.println(key + " -- " + props.getProperty(key));
+        //}
+
+        def prop = new Properties()
+        def propFile2 = new File("${project.rootDir}/local.properties");
+        //if ( config!=null && config.containsKey(valname2) ) {
+        //    prop.setProperty('org.gradle.java.home', config[valname2])
+        //    prop.setProperty('glassfishHome', config[valname + '.glassfishHome'])
+        //}
+        for (Map.Entry property in config) {
+            //ext[property.key] = property.value;
+            if (property.key.startsWith(valname)) {
+                println property.key.replace(valname+'.', '') + ' = ' + property.value
+                prop.setProperty(property.key.replace(valname+'.', ''), property.value)
+            }
+        }
+        propFile2.createNewFile();
+        prop.store(propFile2.newWriter(), null);
+    } else {
+        println "error: ${project.rootDir}/dev.properties not found"
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}

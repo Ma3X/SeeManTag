@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#333"
+    >
+<TextView  
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:text="@string/hello"
+    />
+<Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/bPush" android:text="@string/btnPush"></Button>
+<EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/editText1"
+          android:focusable="false">
+</EditText>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/tLine1" android:text="@string/txtLine"></TextView>
+<TextView android:text="@string/txtTemper" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tvTitleTemper"></TextView>
+<Button android:text="@string/btnTemper" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/bTemper"></Button>
+<TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/txtNull" android:id="@+id/tvTemper"></TextView>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/txtLine" android:id="@+id/tLine2"></TextView>
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/bMusic" android:text="@string/btnMusic"></Button>
+<ListView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/listViewData"></ListView>
+</LinearLayout>

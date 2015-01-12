@@ -1,0 +1,15 @@
+https://downloads.gradle.org/distributions/gradle-2.2.1-bin.zip
+https://downloads.gradle.org/distributions/gradle-2.2.1-all.zip
+https://downloads.gradle.org/distributions/gradle-2.2.1-src.zip
+
+$ PATH=./out/gradle-2.2.1/bin:$PATH gradle --version
+$ PATH=./out/gradle-2.2.1/bin:$PATH gradle wrapper
+
+$ ./gradlew tasks
+$ ./gradlew clean
+$ ./gradlew jar
+$ ./gradlew run
+$ ./gradlew -q run
+$ ./gradlew clean jar
+
+$ ./gradlew -q _task

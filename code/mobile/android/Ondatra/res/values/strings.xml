@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Control texts -->
+    <string name="btnPush">Push me!</string>
+    <string name="txtTemper">Температура в г.Тольятти:</string>
+    <string name="btnTemper">Обновить температуру...</string>
+    <string name="txtNull"></string>
+    <string name="txtLine">----------------------------</string>
+    <string name="btnMusic">Перейти к SOAP сервису</string>
+
+    <string name="txt_btn_say">sayHello</string>
+
+    <string name="btnConnect">Connect</string>
+    <string name="msg_online">Доступ к Интернету есть</string>
+    <string name="msg_offline">Без доступа к Интернету</string>
+
+    <string name="btnScan">Scan</string>
+    <string name="cbxIsButton">Button controlled</string>
+
+	<!-- Texts -->
+	<string name="hello">Hello World, OndatraActivity!</string>
+	<string name="app_name">Ondatra</string>
+	<string name="loginUsernameLABEL">Username</string>
+	<string name="loginPasswordLABEL">Password</string>
+	<string name="loginSubmitBUTTON">Login</string>
+	<string name="loginSSLCHECKBOX">Activate SSL</string>
+	<string name="loginREMBEMBERCHECKBOX">Save login</string>
+	<string name="sendButton">Send</string>
+	<string name="cancelButton">Back</string>
+	<string name="friendlistTab">Friends</string>
+	<string name="messagesTab">Messages</string>
+	<string name="openProfileButton">View profile</string>
+	<string name="working">Working..</string>
+	<string name="retrieving_message">Getting message</string>
+	<string name="retrieving_image">Loading image</string>
+	<string name="logging_in">Sending Login</string>
+	<string name="ViewProfileSendMessage">Write message</string>
+	<string name="pull_friendlist">Getting friendlist</string>
+	<string name="pull_messagelist">Getting messages</string>
+	<string name="service_started">runs</string>
+	<string name="login_error">Login failure!</string>
+	<string name="visitorTab">Visitors</string>
+	<string name="sentmessagesTab">Sent</string>
+	<drawable name="color_background">#1E4391</drawable>
+	<drawable name="color_transparent">#00000000</drawable>
+	<string name="url_home">http://192.168.0.6</string>
+	
+	<!-- Main Menu -->
+	<string name="menu_about">About this App</string>
+	<string name="menu_logout">Logout</string>
+	<string name="menu_preferences">Preferences</string>
+
+	<!-- Preferences -->
+	<string name="pref_notifications">Notifications</string>
+	<string name="notification_show_lights">Flash status light</string>
+	<string name="notification_show_lights_text">Flashes the Led status light</string>
+	<string name="notification_default_sound">Play notification sound</string>
+	<string name="notification_default_sound_text">Plays the default notification sound</string>
+	<string name="notification_vibrate">Vibrate</string>
+	<string name="notification_vibrate_text">Vibrates the phone</string>
+</resources>

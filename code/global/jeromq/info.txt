@@ -1,0 +1,15 @@
+git clone https://github.com/zeromq/jeromq.git
+
+/code/global/jeromq/src/main/jeromq.iml
+
+Current commit:
+------------------------------------------------------
+commit 178c5b8c2ba594728cbfcf93547f154ac3d5ea5a
+Merge: 20af627 a87b26e
+Author: Dongmin Yu <miniway@gmail.com>
+Date:   Wed Jun 11 10:29:59 2014 -0700
+
+    Merge pull request #167 from trevorbernard/master
+    
+    Fix javadoc lint in Java 8
+------------------------------------------------------
