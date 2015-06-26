@@ -18,8 +18,7 @@
 				<Linker>
 					<Add library="..\zmq\bin\Debug\libzmq.a" />
 					<Add library="..\soda\bin\Debug\libsoda.a" />
-					<Add library="..\..\..\Programs\devel\CodeBlocks-13.12\MinGW\lib\libws2_32.a" />
-					<Add library="..\..\..\Programs\devel\CodeBlocks-13.12\MinGW\lib\libadvapi32.a" />
+					<Add library="..\..\..\..\..\..\..\Programs\devel\CodeBlocks-13.12\MinGW\lib\libws2_32.a" />
 				</Linker>
 			</Target>
 			<Target title="Release">
