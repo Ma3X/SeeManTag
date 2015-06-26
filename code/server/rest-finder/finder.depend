@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1435316626 source:f:\programs\devel\finder\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
