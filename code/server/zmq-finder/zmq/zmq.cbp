@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="zmq" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/zmq" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Debug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-DZMQ_STATIC" />
+					<Add directory="../soda/src/libsodium/include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/zmq" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Unit filename="include/zmq.h" />
+		<Unit filename="include/zmq_utils.h" />
+		<Unit filename="src/address.cpp" />
+		<Unit filename="src/clock.cpp" />
+		<Unit filename="src/ctx.cpp" />
+		<Unit filename="src/curve_client.cpp" />
+		<Unit filename="src/curve_server.cpp" />
+		<Unit filename="src/dealer.cpp" />
+		<Unit filename="src/devpoll.cpp" />
+		<Unit filename="src/dist.cpp" />
+		<Unit filename="src/epoll.cpp" />
+		<Unit filename="src/err.cpp" />
+		<Unit filename="src/fq.cpp" />
+		<Unit filename="src/gssapi_client.cpp" />
+		<Unit filename="src/gssapi_mechanism_base.cpp" />
+		<Unit filename="src/gssapi_server.cpp" />
+		<Unit filename="src/io_object.cpp" />
+		<Unit filename="src/io_thread.cpp" />
+		<Unit filename="src/ip.cpp" />
+		<Unit filename="src/ipc_address.cpp" />
+		<Unit filename="src/ipc_connecter.cpp" />
+		<Unit filename="src/ipc_listener.cpp" />
+		<Unit filename="src/kqueue.cpp" />
+		<Unit filename="src/lb.cpp" />
+		<Unit filename="src/mailbox.cpp" />
+		<Unit filename="src/mechanism.cpp" />
+		<Unit filename="src/metadata.cpp" />
+		<Unit filename="src/msg.cpp" />
+		<Unit filename="src/mtrie.cpp" />
+		<Unit filename="src/norm_engine.cpp" />
+		<Unit filename="src/null_mechanism.cpp" />
+		<Unit filename="src/object.cpp" />
+		<Unit filename="src/options.cpp" />
+		<Unit filename="src/own.cpp" />
+		<Unit filename="src/pair.cpp" />
+		<Unit filename="src/pgm_receiver.cpp" />
+		<Unit filename="src/pgm_sender.cpp" />
+		<Unit filename="src/pgm_socket.cpp" />
+		<Unit filename="src/pipe.cpp" />
+		<Unit filename="src/plain_client.cpp" />
+		<Unit filename="src/plain_server.cpp" />
+		<Unit filename="src/platform.hpp" />
+		<Unit filename="src/poll.cpp" />
+		<Unit filename="src/poller_base.cpp" />
+		<Unit filename="src/precompiled.cpp" />
+		<Unit filename="src/proxy.cpp" />
+		<Unit filename="src/pub.cpp" />
+		<Unit filename="src/pull.cpp" />
+		<Unit filename="src/push.cpp" />
+		<Unit filename="src/random.cpp" />
+		<Unit filename="src/raw_decoder.cpp" />
+		<Unit filename="src/raw_encoder.cpp" />
+		<Unit filename="src/reaper.cpp" />
+		<Unit filename="src/rep.cpp" />
+		<Unit filename="src/req.cpp" />
+		<Unit filename="src/router.cpp" />
+		<Unit filename="src/select.cpp" />
+		<Unit filename="src/session_base.cpp" />
+		<Unit filename="src/signaler.cpp" />
+		<Unit filename="src/socket_base.cpp" />
+		<Unit filename="src/socks.cpp" />
+		<Unit filename="src/socks_connecter.cpp" />
+		<Unit filename="src/stream.cpp" />
+		<Unit filename="src/stream_engine.cpp" />
+		<Unit filename="src/sub.cpp" />
+		<Unit filename="src/tcp.cpp" />
+		<Unit filename="src/tcp_address.cpp" />
+		<Unit filename="src/tcp_connecter.cpp" />
+		<Unit filename="src/tcp_listener.cpp" />
+		<Unit filename="src/thread.cpp" />
+		<Unit filename="src/tipc_address.cpp" />
+		<Unit filename="src/tipc_connecter.cpp" />
+		<Unit filename="src/tipc_listener.cpp" />
+		<Unit filename="src/trie.cpp" />
+		<Unit filename="src/v1_decoder.cpp" />
+		<Unit filename="src/v1_encoder.cpp" />
+		<Unit filename="src/v2_decoder.cpp" />
+		<Unit filename="src/v2_encoder.cpp" />
+		<Unit filename="src/xpub.cpp" />
+		<Unit filename="src/xsub.cpp" />
+		<Unit filename="src/zmq.cpp" />
+		<Unit filename="src/zmq_utils.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
