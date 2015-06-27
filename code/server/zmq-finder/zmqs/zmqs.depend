@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1435408753 source:g:\projects\bio\seemantag\code\server\zmq-finder\zmqs\zmqs.c
+	<stdio.h>
+	"zmq.h"
+
+1434367802 g:\projects\bio\seemantag\code\server\zmq-finder\zmq\include\zmq.h
+	<errno.h>
+	<stddef.h>
+	<stdio.h>
+	<winsock2.h>
+	<inttypes.h>
+	<stdint.h>
+

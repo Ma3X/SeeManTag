@@ -4,5 +4,6 @@
 		<Project filename="soda/soda.cbp" />
 		<Project filename="zmq/zmq.cbp" />
 		<Project filename="zmqc/zmqc.cbp" />
+		<Project filename="zmqs/zmqs.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
