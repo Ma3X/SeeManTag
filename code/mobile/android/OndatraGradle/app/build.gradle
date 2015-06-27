@@ -8,8 +8,8 @@ android {
     defaultConfig {
         applicationId "com.xpyct.ondatra"
         minSdkVersion 10
-        targetSdkVersion 10
-        //targetSdkVersion 21
+        //targetSdkVersion 10
+        targetSdkVersion 21
 
         ndk {
             moduleName "test"
@@ -27,6 +27,15 @@ android {
         }
 
         //debug.jniDebugBuild true
+    }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'x86', 'armeabi-v7a', 'armeabi', 'mips'
+            universalApk true
+        }
     }
 
     productFlavors {
@@ -79,6 +88,19 @@ android {
     sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jni/'] } }
 }
 
+// map for the version code
+ext.versionCodes = ['armeabi-v7a':1, mips:2, x86:3]
+/*
+import com.android.build.OutputFile
+
+android.applicationVariants.all { variant ->
+    // assign different version code for each output
+    variant.outputs.each { output ->
+        output.versionCodeOverride =
+                project.ext.versionCodes.get(output.getFilter(OutputFile.ABI)) * 1000000 + android.defaultConfig.versionCode
+    }
+}
+*/
 dependencies {
     compile files('libs/htmlcleaner-2.2.jar')
     compile files('libs/ksoap2-android-assembly-2.5.8-jar-with-dependencies.jar')

@@ -22,6 +22,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xpyct.tests.RetrieveInfoTask;
+
 public class MuteActivity extends Activity {
 
     // example XPATH queries in the form of strings - will be used later
@@ -143,7 +145,14 @@ public class MuteActivity extends Activity {
     };
 
     public void RefreshMute()
-    { 
+    {
+        Context ctx1 = getApplicationContext();
+        new RetrieveInfoTask().execute("192.168.1.50", "hello");
+        String info = "Test sync.";
+        Toast toast1 = Toast.makeText(ctx1, info, Toast.LENGTH_SHORT);
+        toast1.setGravity(Gravity.CENTER, 0, 0);
+        toast1.show();
+
         final TextView tMute = (TextView) findViewById(R.id.tvMute);
         CharSequence bashmute = "";
 		if(this.isOnline()) {
