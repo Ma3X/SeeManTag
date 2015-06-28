@@ -11,3 +11,22 @@
 	<inttypes.h>
 	<stdint.h>
 
+1435438221 source:f:\projects\seemantag\code\server\zmq-finder\zmqs\zmqs.c
+	<stdio.h>
+	"zmq.h"
+
+1435438217 f:\projects\seemantag\code\server\zmq-finder\zmq\include\zmq.h
+	<errno.h>
+	<stddef.h>
+	<stdio.h>
+	<winsock2.h>
+	<inttypes.h>
+	<stdint.h>
+
+1435454043 source:f:\projects\seemantag\code\server\zmq-finder\zmqs\zmqs.cpp
+	"zmq.h"
+	<iostream>
+	<string>
+	<windows.h>
+	<tlhelp32.h>
+

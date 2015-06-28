@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="include\zmq.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2046" topLine="50" />
-		</Cursor>
-	</File>
-	<File name="src\address.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1420" topLine="18" />
-		</Cursor>
-	</File>
-	<File name="src\socket_base.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11352" topLine="390" />
-		</Cursor>
-	</File>
-	<File name="src\ctx.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3626" topLine="105" />
-		</Cursor>
-	</File>
-	<File name="src\options.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="22666" topLine="763" />
-		</Cursor>
-	</File>
 	<File name="src\zmq.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="4479" topLine="134" />
@@ -36,6 +11,41 @@
 			<Cursor1 position="2277" topLine="66" />
 		</Cursor>
 	</File>
+	<File name="src\kqueue.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1515" topLine="23" />
+		</Cursor>
+	</File>
+	<File name="src\socket_base.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11352" topLine="390" />
+		</Cursor>
+	</File>
+	<File name="include\zmq.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2046" topLine="50" />
+		</Cursor>
+	</File>
+	<File name="src\address.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1420" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="src\ctx.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1805" topLine="46" />
+		</Cursor>
+	</File>
+	<File name="src\options.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="22666" topLine="763" />
+		</Cursor>
+	</File>
+	<File name="src\tcp_address.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14427" topLine="445" />
+		</Cursor>
+	</File>
 	<File name="src\platform.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="7034" topLine="255" />
@@ -44,16 +54,6 @@
 	<File name="src\ip.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1988" topLine="42" />
-		</Cursor>
-	</File>
-	<File name="src\kqueue.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1515" topLine="23" />
-		</Cursor>
-	</File>
-	<File name="src\tcp_address.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="14427" topLine="445" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

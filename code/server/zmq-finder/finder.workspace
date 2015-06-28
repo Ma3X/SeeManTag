@@ -5,5 +5,6 @@
 		<Project filename="zmq/zmq.cbp" />
 		<Project filename="zmqc/zmqc.cbp" />
 		<Project filename="zmqs/zmqs.cbp" />
+		<Project filename="test-drv/test-drv.cbp" />
 	</Workspace>
 </CodeBlocks_workspace_file>
