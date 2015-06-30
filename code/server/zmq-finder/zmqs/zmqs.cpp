@@ -155,12 +155,17 @@ int main_start()
     printf("Hello world!\n");
     return 0;
 }
+int main_image()
+{
+    int i = 0;
+    return i;
+}
 
 int main_check ()
 {
     int i = 0;
-    g_hW == NULL;
-    g_hWnd == NULL;
+    g_hW = NULL;
+    g_hWnd = NULL;
     ::printf("Starting EnumWindows()\n");
     ::EnumWindows(&MyEnumWindowsProc, reinterpret_cast<LPARAM>(&i));
     if(g_hW != NULL) {
@@ -182,9 +187,13 @@ int main_first (int argc, char const *argv[])
     switch(ret) {
         case 1:
             main_start();
+            sleep(2); // sleep one second
+            ret = main_check();
             break;
         case 2:
             PostMessage(g_hWnd, WM_CLOSE, 0, 0);
+            sleep(2); // sleep one second
+            ret = main_check();
             break;
         case 0:
         default:
@@ -270,12 +279,16 @@ int main (int argc, char const *argv[])
 
         std::string dat(data);
         std::size_t fnd = dat.find("revert_cam");
-        if(std::string::npos != found && found == 0) {
+        if(std::string::npos != fnd && fnd == 0) {
             res = main_first(argc, argv);
         }
         fnd = dat.find("info_cam");
-        if(std::string::npos != found && found == 0) {
-            res = main_first(argc, argv);
+        if(std::string::npos != fnd && fnd == 0) {
+            res = main_check();
+        }
+        fnd = dat.find("get_image");
+        if(std::string::npos != fnd && fnd == 0) {
+            res = main_image();
         }
 
         //zmq_msg_t part;
