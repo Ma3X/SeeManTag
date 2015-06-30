@@ -176,7 +176,7 @@ int main_check ()
     return i;
 }
 
-int main (int argc, char const *argv[])
+int main_first (int argc, char const *argv[])
 {
     int ret = main_check();
     switch(ret) {
@@ -191,7 +191,7 @@ int main (int argc, char const *argv[])
             ::printf("Main ContaCam window not found\n");
             break;
     }
-    return 0;
+    return ret;
 }
 
 int main___ (int argc, char const *argv[])
@@ -237,7 +237,7 @@ int main___ (int argc, char const *argv[])
     return 0;
 }
 
-int main_ (int argc, char const *argv[])
+int main (int argc, char const *argv[])
 {
     int major, minor, patch;
     zmq_version(&major, &minor, &patch);
@@ -267,6 +267,12 @@ int main_ (int argc, char const *argv[])
         data = (char*) zmq_msg_data(&request);
         data_size = zmq_msg_size(&request);
         data[data_size] = '\0';
+
+        std::string dat(data);
+        std::size_t fnd = dat.find("revert_cam");
+        if(std::string::npos != found && found == 0) {
+            main_first(argc, argv);
+        }
 
         //zmq_msg_t part;
         //switch(type) {
