@@ -20,6 +20,8 @@
 	<!-- Texts -->
 	<string name="hello">Hello World, OndatraActivity!</string>
 	<string name="app_name">Ondatra</string>
+	<string name="app_name2">FatBurn</string>
+	<string name="app_name3">ArmCam</string>
 	<string name="loginUsernameLABEL">Username</string>
 	<string name="loginPasswordLABEL">Password</string>
 	<string name="loginSubmitBUTTON">Login</string>

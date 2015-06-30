@@ -90,11 +90,10 @@ public class TestActivity extends Activity
                     try {
                         DbLite dbs = new DbLite(ctx);
 
-                        //HWClient.main(["test"]);
-                        //new HWClient().getInfo("test");
-                        new RetrieveInfoTask().execute(dbs.getText(), tvS);
+                        ////HWClient.main(["test"]);
+                        ////new HWClient().getInfo("test");
+                        //new RetrieveInfoTask(this).execute(dbs.getText(), tvS);
                         String info = "Test sync.";
-
                         Toast toast = Toast.makeText(ctx, info, Toast.LENGTH_SHORT);
                         toast.setGravity(Gravity.CENTER, 0, 0);
                         toast.show();

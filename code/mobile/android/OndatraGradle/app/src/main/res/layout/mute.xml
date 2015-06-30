@@ -1,16 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     >
-  <Button android:text="Mute" 
-          android:layout_height="wrap_content" 
-          android:layout_width="wrap_content" 
-          android:id="@+id/bMute"></Button>
-  <TextView android:textAppearance="?android:attr/textAppearanceLarge" 
-            android:layout_height="wrap_content" 
-            android:layout_width="wrap_content" 
-            android:text="@string/txtNull" 
-            android:id="@+id/tvMute"></TextView>
-</LinearLayout>
+    <TableRow>
+      <Button android:text="Arm"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:id="@+id/bMute"></Button>
+
+      <Button android:text="Refresh"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/bRefresh" />
+
+        <EditText android:text="Disarmed"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/etStatus" />
+
+      <Button android:text="Get Image"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/bImage" />
+    </TableRow>
+    <TableRow android:id="@+id/trID">
+      <TextView android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:text="@string/txtNull"
+                android:id="@+id/tvMute"
+          android:layout_span="4"></TextView>
+    </TableRow>
+    <TableRow>
+      <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_column="0"
+          android:layout_span="4" />
+    </TableRow>
+</TableLayout>

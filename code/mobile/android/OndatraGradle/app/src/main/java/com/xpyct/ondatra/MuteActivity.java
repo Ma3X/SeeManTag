@@ -19,6 +19,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,11 +44,23 @@ public class MuteActivity extends Activity {
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.mute);
 
-		final Button btnP = (Button) findViewById(R.id.bMute);
+        final Button btnP = (Button) findViewById(R.id.bMute);
         btnP.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				RefreshMute();
-			}
+            public void onClick(View v) {
+                ArmAndDisarm();
+            }
+        });
+        final Button btnR = (Button) findViewById(R.id.bRefresh);
+        btnR.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                RefreshMute();
+            }
+        });
+        final Button btnI = (Button) findViewById(R.id.bImage);
+        btnI.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                GetImage();
+            }
         });
         RefreshMute();
 	}
@@ -144,14 +157,62 @@ public class MuteActivity extends Activity {
         return matchmute;  
     };
 
-    public void RefreshMute()
+    public void PostRetrieveInfoTask(String feed)
+    {
+        final Button btnA = (Button) findViewById(R.id.bMute);
+        final Button btnI = (Button) findViewById(R.id.bImage);
+        final EditText eT = (EditText) findViewById(R.id.etStatus);
+        switch (feed) {
+            case "start":
+                btnA.setText("Arm");
+                btnA.setEnabled(true);
+                btnI.setEnabled(false);
+                eT.setText("Disarmed");
+                break;
+            case "stop_":
+                btnA.setText("Disarm");
+                btnA.setEnabled(true);
+                btnI.setEnabled(true);
+                eT.setText("Armed");
+                break;
+            case "nocam":
+            default:
+                btnA.setEnabled(false);
+                btnI.setEnabled(false);
+                eT.setText("No Cam");
+                break;
+        }
+    }
+
+    public void GetImage()
     {
         Context ctx1 = getApplicationContext();
-        new RetrieveInfoTask().execute("192.168.1.50", "hello");
-        String info = "Test sync.";
+        String info = "get_image";
+        new RetrieveInfoTask(this).execute("10.0.0.45", "get_image");
         Toast toast1 = Toast.makeText(ctx1, info, Toast.LENGTH_SHORT);
         toast1.setGravity(Gravity.CENTER, 0, 0);
         toast1.show();
+    }
+
+    public void ArmAndDisarm()
+    {
+        Context ctx1 = getApplicationContext();
+        String info = "revert_cam";
+        new RetrieveInfoTask(this).execute("10.0.0.45", "revert_cam");
+        Toast toast1 = Toast.makeText(ctx1, info, Toast.LENGTH_SHORT);
+        toast1.setGravity(Gravity.CENTER, 0, 0);
+        toast1.show();
+    }
+
+    public void RefreshMute()
+    {
+        Context ctx1 = getApplicationContext();
+        String info = "info_cam";
+        new RetrieveInfoTask(this).execute("10.0.0.45", "info_cam");
+        Toast toast1 = Toast.makeText(ctx1, info, Toast.LENGTH_SHORT);
+        toast1.setGravity(Gravity.CENTER, 0, 0);
+        toast1.show();
+        if(true) return;
 
         final TextView tMute = (TextView) findViewById(R.id.tvMute);
         CharSequence bashmute = "";
@@ -170,13 +231,12 @@ public class MuteActivity extends Activity {
     };
 
 	public boolean isOnline() {
-	    ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+	    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 	    NetworkInfo nInfo = cm.getActiveNetworkInfo();
 	    if (nInfo != null && nInfo.isConnected()) {
 	        Log.v("status", "ONLINE");
 	        return true;
-	    }
-	    else {
+        } else {
 	        Log.v("status", "OFFLINE");
 	        return false;
 	    }
