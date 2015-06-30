@@ -271,7 +271,11 @@ int main (int argc, char const *argv[])
         std::string dat(data);
         std::size_t fnd = dat.find("revert_cam");
         if(std::string::npos != found && found == 0) {
-            main_first(argc, argv);
+            res = main_first(argc, argv);
+        }
+        fnd = dat.find("info_cam");
+        if(std::string::npos != found && found == 0) {
+            res = main_first(argc, argv);
         }
 
         //zmq_msg_t part;
@@ -299,8 +303,21 @@ int main (int argc, char const *argv[])
         zmq_msg_close(&request);
         sleep(1); // sleep one second
         zmq_msg_t reply;
-        zmq_msg_init_size(&reply, strlen("world"));
-        memcpy(zmq_msg_data(&reply), "world", 5);
+        switch(res) {
+        case 1:
+            zmq_msg_init_size(&reply, strlen("start"));
+            memcpy(zmq_msg_data(&reply), "start", 5);
+            break;
+        case 2:
+            zmq_msg_init_size(&reply, strlen("stop_"));
+            memcpy(zmq_msg_data(&reply), "stop_", 5);
+            break;
+        case 0:
+        default:
+            zmq_msg_init_size(&reply, strlen("nocam"));
+            memcpy(zmq_msg_data(&reply), "nocam", 5);
+            break;
+        }
         zmq_msg_send(&reply, respond, 0);
         zmq_msg_close(&reply);
     }
