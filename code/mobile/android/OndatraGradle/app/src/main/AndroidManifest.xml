@@ -41,8 +41,8 @@
 
         <!--activity android:name=".HtmlActivity" android:label="@string/app_name" /-->
         <activity android:name=".HtmlActivity"
-                  android:label="@string/app_name"
-                  android:icon="@drawable/icona">
+            android:label="@string/app_name2"
+            android:icon="@drawable/icona">
             <intent-filter android:icon="@drawable/icona">
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -51,7 +51,16 @@
 
         <activity android:name=".OndatraActivity" android:label="@string/app_name" />
         <activity android:name=".XSaneActivity" android:label="@string/app_name" />
-        <activity android:name=".MuteActivity" android:label="@string/app_name" />
+
+        <!--activity android:name=".MuteActivity" android:label="@string/app_name" /-->
+        <activity android:name=".MuteActivity"
+            android:label="@string/app_name3"
+            android:icon="@drawable/icona">
+            <intent-filter android:icon="@drawable/icona">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <receiver android:name=".SMSReceiver" android:enabled="true">
             <intent-filter>
