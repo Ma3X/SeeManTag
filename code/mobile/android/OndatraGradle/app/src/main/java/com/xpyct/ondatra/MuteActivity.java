@@ -9,9 +9,12 @@ import java.util.regex.Pattern;
 import org.htmlcleaner.CleanerProperties;
 import org.htmlcleaner.HtmlCleaner;
 import org.htmlcleaner.TagNode;
+import org.kobjects.base64.Base64;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -20,6 +23,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -156,6 +160,14 @@ public class MuteActivity extends Activity {
         }
         return matchmute;  
     };
+
+    public void PostRetrieveImage(String feed)
+    {
+        byte[] restoredBytes = Base64.decode(feed);
+        ImageView iv = (ImageView)findViewById(R.id.imageView);
+        Bitmap bImage = BitmapFactory.decodeByteArray(restoredBytes, 0, restoredBytes.length);
+        iv.setImageBitmap(bImage);
+    }
 
     public void PostRetrieveInfoTask(String feed)
     {

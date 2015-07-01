@@ -27,6 +27,8 @@ package com.xpyct.tests;
 //
 
 // https://github.com/zeromq/jeromq/blob/master/src/test/java/guide/hwclient.java
+
+import org.kobjects.base64.Base64;
 import org.zeromq.ZMQ;
 
 public class HWClient {
@@ -46,8 +48,12 @@ public class HWClient {
         System.out.println("Sending: " + sendText);
         socket.send(sendText.getBytes (ZMQ.CHARSET), 0);
         byte[] reply = socket.recv(0);
-        ret = new String (reply, ZMQ.CHARSET);
-        System.out.println("Received: " + ret);
+        if(sendText != "get_image") {
+            ret = new String(reply, ZMQ.CHARSET);
+            System.out.println("Received: " + ret);
+        } else {
+            ret = new String(Base64.encode(reply));
+        }
 
         //for(int requestNbr = 0; requestNbr != 10; requestNbr++) {
         //    String request = "Hello" ;
