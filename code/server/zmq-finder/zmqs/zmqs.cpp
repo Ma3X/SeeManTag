@@ -6,12 +6,107 @@
 #include "zmq.h"
 
 #include <iostream>
+#include <fstream>
 #include <string>
+using namespace std;
 
 #include <windows.h>
 #include <tlhelp32.h>
 
 #define sleep(x) Sleep(1000 * x)
+HWND g_hW = NULL;
+HWND g_hWnd = NULL;
+
+// http://forum.codenet.ru/q51660/%D0%A1%D0%BA%D1%80%D0%B8%D0%BD%D0%A8%D0%BE%D1%82+%D1%81%D0%B2%D0%B5%D1%80%D0%BD%D1%83%D1%82%D0%BE%D0%B3%D0%BE/%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%BE%D0%B3%D0%BE+%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F
+BOOL StoreBitmapFile(LPCTSTR lpszFileName, HBITMAP HBM)
+{
+BITMAP BM;
+BITMAPFILEHEADER BFH;
+LPBITMAPINFO BIP;
+HDC DC;
+LPBYTE Buf;
+DWORD ColorSize,DataSize;
+WORD BitCount;
+HANDLE FP;
+DWORD dwTemp;
+
+GetObject(HBM, sizeof(BITMAP), (LPSTR)&BM);
+
+BitCount = (WORD)BM.bmPlanes * BM.bmBitsPixel;
+switch (BitCount)
+{
+case 1:
+case 4:
+case 8:
+case 32:
+ColorSize = sizeof(RGBQUAD) * (1 << BitCount);
+case 16:
+case 24:
+ColorSize = 0;
+}
+
+DataSize = ((BM.bmWidth*BitCount+31) & ~31)/8*BM.bmHeight;
+BIP=(LPBITMAPINFO)HeapAlloc(GetProcessHeap(),HEAP_ZERO_MEMORY,sizeof(BITMAPINFOHEADER)+ColorSize);
+BIP->bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+BIP->bmiHeader.biWidth = BM.bmWidth;
+BIP->bmiHeader.biHeight = BM.bmHeight;
+BIP->bmiHeader.biPlanes = 1;
+BIP->bmiHeader.biBitCount = BitCount;
+BIP->bmiHeader.biCompression = 0;
+BIP->bmiHeader.biSizeImage = DataSize;
+BIP->bmiHeader.biXPelsPerMeter = 0;
+BIP->bmiHeader.biYPelsPerMeter = 0;
+if (BitCount < 16)
+BIP->bmiHeader.biClrUsed = (1<<BitCount);
+BIP->bmiHeader.biClrImportant = 0;
+
+BFH.bfType = 0x4d42;
+BFH.bfOffBits=sizeof(BITMAPFILEHEADER)+sizeof(BITMAPINFOHEADER)+ BIP->bmiHeader.biClrUsed * sizeof(RGBQUAD);
+BFH.bfReserved1 = 0;
+BFH.bfReserved2 = 0;
+BFH.bfSize = BFH.bfOffBits + DataSize;
+
+Buf = (LPBYTE)GlobalAlloc(GMEM_FIXED, DataSize);
+
+DC = GetDC(0);
+GetDIBits(DC, HBM, 0,(WORD)BM.bmHeight, Buf, BIP, DIB_RGB_COLORS);
+ReleaseDC(0, DC);
+FP=CreateFile(lpszFileName,GENERIC_READ | GENERIC_WRITE, 0, NULL,
+CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,NULL);
+WriteFile(FP,&BFH,sizeof(BITMAPFILEHEADER),&dwTemp,NULL);
+WriteFile(FP,BIP,sizeof(BITMAPINFOHEADER) + BIP->bmiHeader.biClrUsed * sizeof(RGBQUAD),&dwTemp,NULL);
+WriteFile(FP,Buf,DataSize,&dwTemp,NULL);
+CloseHandle(FP);
+GlobalFree((HGLOBAL)Buf);
+HeapFree(GetProcessHeap(),0,(LPVOID)BIP);
+return(true);
+}
+
+// Такой код будет снимать скриншот перекрытого окна или окна, которое выходит за рамки экрана.
+// Работает в Windows 7( возможно в висте, не проверял), при нужных настройках.
+// Панель управления -> Система -> Дополнительные параметры системы -> Дополнительно ->
+// -> Быстродействие -> Параметры.
+// Нужно поставить галочки "Включение композиции рабочего стола"
+// и "Использование стилей отбражения для окон и кнопок".
+bool screen_shot_game(HWND window_f)
+{
+    HDC hdc = GetDC(window_f);
+    HDC hdcCompatible = CreateCompatibleDC(hdc);
+    RECT        cr;
+    GetClientRect(window_f,&cr);
+    HBITMAP  hBmp=CreateCompatibleBitmap(hdc, cr.right-cr.left, cr.bottom-cr.top);
+    HWND hSrcWnd;
+    HDC hSrcDC;
+    HBITMAP old_bitmap = (HBITMAP) SelectObject(hdcCompatible, hBmp);
+    BitBlt(hdcCompatible, 0, 0, cr.right-cr.left, cr.bottom-cr.top, hdc, 0, 0, SRCCOPY);
+    ReleaseDC(window_f, hdc);
+    SelectObject(hdcCompatible, old_bitmap);
+    DeleteDC(hdcCompatible);
+    DeleteObject(old_bitmap);
+    StoreBitmapFile("3.bmp",hBmp);
+    DeleteObject(hBmp);
+    return true;
+}
 
 // http://www.cplusplus.com/forum/windows/12137/
 //DWORD FindProcessId(const std::wstring& processName)
@@ -92,8 +187,6 @@ int main__ (int argc, char const *argv[])
 */
 
 //namespace std::string;
-HWND g_hW = NULL;
-HWND g_hWnd = NULL;
 std::size_t found = std::string::npos;
 BOOL CALLBACK MyEnumWindowsProc(HWND hwnd, LPARAM lparam)
 {
@@ -155,10 +248,67 @@ int main_start()
     printf("Hello world!\n");
     return 0;
 }
-int main_image()
+
+bool screen_shot_game_1(HWND window_f)
 {
-    int i = 0;
-    return i;
+  //if(global_hunt!=NULL){
+  RECT rcSrc;
+  HWND hSrcWnd;
+  HDC hDC, hSrcDC;
+  HBITMAP hBmp;
+
+  GetWindowRect(window_f, &rcSrc);
+  hDC = GetDC(window_f);
+  hSrcDC = CreateCompatibleDC(NULL);
+  hBmp = CreateCompatibleBitmap(hDC, rcSrc.right - rcSrc.left,    rcSrc.bottom - rcSrc.top);
+  SelectObject(hSrcDC, hBmp);
+  PrintWindow(window_f, hSrcDC, 0);
+  BitBlt(
+   hDC,
+   0,
+   0,
+   rcSrc.right - rcSrc.left,
+   rcSrc.bottom - rcSrc.top,
+   hSrcDC,
+   0,
+   0,
+   SRCCOPY);
+  StoreBitmapFile("3.bmp",hBmp);
+  DeleteObject(hBmp);
+  DeleteDC(hSrcDC);
+  //ReleaseDC(global_hunt, hDC);
+  return true;
+  //}
+  // return false;
+}
+
+size_t g_size;
+char* main_image()
+{
+    g_size = 0;
+    //screen_shot_game(g_hWnd);
+    //screen_shot_game_1(g_hWnd);
+    std::string path = "C:\\ContaCam\\Logitech HD Webcam C525\\";
+    std::string file = "snapshot.jpg";
+    std::string tumb = "snapshot_thumb.jpg";
+    std::string pt = path + tumb;
+
+    streampos size;
+    char* memblock;
+    ifstream myfile(pt.c_str(), ios::in|ios::binary|ios::ate);
+    if(myfile.is_open())
+    {
+        size = myfile.tellg();
+        g_size = size;
+        memblock = new char[size];
+        myfile.seekg(0, ios::beg);
+        myfile.read(memblock, size);
+        myfile.close();
+
+        return memblock;
+        //delete[] memblock;
+    }
+    return NULL;
 }
 
 int main_check ()
@@ -277,6 +427,7 @@ int main (int argc, char const *argv[])
         data_size = zmq_msg_size(&request);
         data[data_size] = '\0';
 
+        zmq_msg_t reply;
         std::string dat(data);
         std::size_t fnd = dat.find("revert_cam");
         if(std::string::npos != fnd && fnd == 0) {
@@ -288,7 +439,31 @@ int main (int argc, char const *argv[])
         }
         fnd = dat.find("get_image");
         if(std::string::npos != fnd && fnd == 0) {
-            res = main_image();
+          char* memblock = main_image();
+          printf("Received: %s\n", data);
+          zmq_msg_close(&request);
+          sleep(1); // sleep one second
+          zmq_msg_init_size(&reply, g_size);
+          memcpy(zmq_msg_data(&reply), memblock, g_size);
+        } else {
+          printf("Received: %s\n", data);
+          zmq_msg_close(&request);
+          sleep(1); // sleep one second
+          switch(res) {
+          case 1:
+            zmq_msg_init_size(&reply, strlen("start"));
+            memcpy(zmq_msg_data(&reply), "start", 5);
+            break;
+          case 2:
+            zmq_msg_init_size(&reply, strlen("stop_"));
+            memcpy(zmq_msg_data(&reply), "stop_", 5);
+            break;
+          case 0:
+          default:
+            zmq_msg_init_size(&reply, strlen("nocam"));
+            memcpy(zmq_msg_data(&reply), "nocam", 5);
+            break;
+          }
         }
 
         //zmq_msg_t part;
@@ -312,25 +487,6 @@ int main (int argc, char const *argv[])
             //    else qDebug() << "DATA: LARGE" << "size=" << data_size; zmq_msg_close(&part); break;
         //}
 
-        printf("Received: %s\n", data);
-        zmq_msg_close(&request);
-        sleep(1); // sleep one second
-        zmq_msg_t reply;
-        switch(res) {
-        case 1:
-            zmq_msg_init_size(&reply, strlen("start"));
-            memcpy(zmq_msg_data(&reply), "start", 5);
-            break;
-        case 2:
-            zmq_msg_init_size(&reply, strlen("stop_"));
-            memcpy(zmq_msg_data(&reply), "stop_", 5);
-            break;
-        case 0:
-        default:
-            zmq_msg_init_size(&reply, strlen("nocam"));
-            memcpy(zmq_msg_data(&reply), "nocam", 5);
-            break;
-        }
         zmq_msg_send(&reply, respond, 0);
         zmq_msg_close(&reply);
     }
